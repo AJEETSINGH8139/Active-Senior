@@ -1,13 +1,14 @@
 // SignupForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    age: '',
-    email: '',
-    password: ''
+    name: "",
+    age: "",
+    email: "",
+    password: ""
   });
 
     const handleInputChange = (event) => {
@@ -29,11 +30,12 @@ const SignupForm = () => {
     };
 
     return (
-        <div>
+    <div className='signup'>
       <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className='login-form'>
+        <div className="input-div">
           <label htmlFor="name">Name:</label>
+          <br />
           <input
             type="text"
             id="name"
@@ -43,8 +45,9 @@ const SignupForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="input-div">
           <label htmlFor="age">Age:</label>
+          <br />
           <input
             type="number"
             id="age"
@@ -54,19 +57,22 @@ const SignupForm = () => {
             required
           />
         </div>
-        <div>
+        <div className="input-div">
           <label htmlFor="email">Email:</label>
+          <br />
           <input
             type="email"
             id="email"
             name="email"
+            placeholder='example@gmail.com'
             value={formData.email}
             onChange={handleInputChange}
             required
           />
         </div>
-        <div>
+        <div className="input-div">
           <label htmlFor="password">Password:</label>
+          <br />
           <input
             type="password"
             id="password"
@@ -76,8 +82,9 @@ const SignupForm = () => {
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className='btn'>Sign Up</button>
       </form>
+      <div>I have already account. <Link to="/login" className='link'>Log In</Link></div>
     </div>
     );
 };

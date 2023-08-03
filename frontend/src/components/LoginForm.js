@@ -1,6 +1,7 @@
 // LoginForm.js
 import React, { useState } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -30,22 +31,25 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h2>Log In</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="input-div">
           <label htmlFor="email">Email:</label>
+          <br/>
           <input
             type="email"
             id="email"
             name="email"
+            placeholder="example@gmail.com"
             value={formData.email}
             onChange={handleInputChange}
             required
           />
         </div>
-        <div>
+        <div className="input-div">
           <label htmlFor="password">Password:</label>
+          <br />
           <input
             type="password"
             id="password"
@@ -55,8 +59,9 @@ const LoginForm = () => {
             required
           />
         </div>
-        <button type="submit">Log In</button>
+        <button type="submit" className="btn">Log In</button>
       </form>
+      <div>I have already account. <Link to="/signup" className='link'>Sign Up</Link></div>
     </div>
   );
 };

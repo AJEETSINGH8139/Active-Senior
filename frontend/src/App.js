@@ -7,7 +7,6 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <Router>
-      <h1>Hello</h1>
       <Routes>
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<LoginForm />} />
